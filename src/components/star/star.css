@@ -1,0 +1,23 @@
+.blockStar {
+    /* width:100px; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa {
+    color: rgb(240, 231, 231);
+}
+
+.ONeStar:hover {
+    color: rgb(0, 153, 255);
+}
+
+
+.ONeStarActive {
+    color: orange;
+}
+
+.blockStar {
+    display: flex;
+    justify-content: center;
+}
