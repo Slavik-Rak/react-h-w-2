@@ -64,48 +64,107 @@ function App() {
   //---кінець заповнення масиву обєктів------------
   const [cardDelOn, delOne] = useState(arrCard);
 
-  console.log(cardDelOn);
 
-  //====funDel===
+
+  //====funDelSomeOne===
   const delOneCart = index => {
-    console.log(cardDelOn);
     let newArr = [...cardDelOn].filter((elem, indexF) => indexF !== index);
-    console.log(cardDelOn[index].title)
-    //newArr[index].title = '!!!!!!!!!!';
-    //let a = cardDelOn.filter((elem, indexF) => indexF !== index);
-    // console.log(index);
-    //console.log(a);
-
     delOne(newArr);
   }
   //============
+
+  //==funcDelOnliFirstsElem================================
+  const delFirstCart = () => {
+    const newArr = [...cardDelOn];
+    newArr.shift();
+    console.log(newArr);
+    delOne(newArr);
+  }
+  //=====================================================
+
+  //==funcUpdateElem================================
+  const UpdateCart = () => {
+    const newArr = [...arrCard];
+    delOne(newArr);
+  }
+  //=====================================================
+
+  //====funcDelOnliLastElem==================================
+  const delLastCart = () => {
+    const newArr = [...cardDelOn];
+    newArr.pop();
+    console.log(newArr);
+    delOne(newArr);
+  }
+  //==================================
+
+
+
+
   return (
 
 
     <div className="App">
+      {/* ======================= Buttons ==================================== */}
+      <div className="wrapButton">
+        {/* ======================= */}
+        <button className="buttoDelFirst" onClick={delFirstCart}>
+          Delite onli <br />
+          <i
+            className="fa fa-times delIcon" aria-hidden="true"
 
-      {
-        arrCard.map((elem, index, arrCard) => (
+          /><br />
+           first element
+        </button>
+        {/* ======================= */}
+        <button className="buttoDelFirst" onClick={UpdateCart}>
+          <i
+            className="fa fas fa-undo delIcon" aria-hidden="true"
 
-          <span className="wrapCardForDel" key={elem.id}>
+          /><br />
+           Update
+        </button>
+        {/* ======================= */}
+        <button className="buttoDelLast" onClick={delLastCart}>
+          Delite onli <br />
+          <i
+            className="fa fa-times delIcon" aria-hidden="true"
 
-            <ProductCard
-              nameTitle={elem.title} price={elem.price} fotoMain={elem.fotoMain}
-              fotoBest={elem.fotoBest} fotoMainR={elem.fotoMainR} />
+          /><br />
+           last element
+        </button>
+        {/* ======================= */}
+      </div>
 
-            <button className="buttoDelOne" onClick={() => delOneCart(index)}>
-              <i
-                className="fa fa-times delIcon" aria-hidden="true"
+      {/* ======================= End Buttons ==================================== */}
 
-              />
-            </button>
-          </span>
+      <div className="wrapCard">
+        {
 
-        ))
-      }
+          cardDelOn.map((elem, index, arrCard) => (
+
+            <span className="wrapCardForDel" key={elem.id}>
+
+              <ProductCard
+                nameTitle={elem.title} price={elem.price} fotoMain={elem.fotoMain}
+                fotoBest={elem.fotoBest} fotoMainR={elem.fotoMainR} />
+
+              <button className="buttoDelOne" onClick={() => delOneCart(index)}>
+                <i
+                  className="fa fa-times delIcon" aria-hidden="true"
+
+                />
+              </button>
+            </span>
+
+          ))
 
 
-    </div>
+        }
+      </div>
+
+    </div >
+
   );
 }
 

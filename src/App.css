@@ -3,7 +3,7 @@
   margin: 0;
 }
 
-.App {
+.wrapCard {
   width: 829px;
   margin: 0 auto;
   display: flex;
@@ -29,4 +29,13 @@
 
 .buttoDelOne:hover {
   background: grey;
+}
+
+.wrapButton {
+  display: flex;
+  justify-content: center;
+}
+
+.buttoDelFirst {
+  margin-right: 60px;
 }
